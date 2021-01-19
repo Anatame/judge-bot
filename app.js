@@ -90,6 +90,7 @@ client.on('message', message => {
 
 });
 
+
 function login(token, status) {
     if (status) {
         client.login(token);
