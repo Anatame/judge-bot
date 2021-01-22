@@ -1,0 +1,23 @@
+{
+    "general" : {
+        "color": "",
+        "url": "https://discord.js.org",
+        "author": {
+            "name": "Test",
+            "icon_url": "https://i.imgur.com/wSTFkRM.png",
+            "url": "https://discord.js.org"
+        },
+        "description": "",
+        "thumbnail": {
+            "url": "https://i.imgur.com/wSTFkRM.png"
+        },
+        "image": {
+            "url": "https://i.imgur.com/wSTFkRM.png"
+        },
+        "footer": {
+            "text": "Test footer text",
+            "icon_url": "https://i.imgur.com/wSTFkRM.png"
+        }
+
+    }
+}
