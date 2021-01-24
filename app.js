@@ -18,9 +18,6 @@ for (const file of commandFiles) {
     client.commands.set(command.name, command);
 }
 
-var status = true;
-login(token, status)
-
 client.once('ready', () => {
     console.log('Ready!');
 });
