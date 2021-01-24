@@ -17,7 +17,7 @@ exports.createUser = function(db, message, args){
         embedData = {
             name:data.name,
             points: data.log[data.log.length - 1].points, 
-            message: data.log[data.log.length - 1].message,
+            message: data.log[data.log.length - 1].message || `Because you ~~worked~~ trained hard!!!`,
             total: total.reduce((a, b)=> a+b)
     }
 
