@@ -1,25 +1,29 @@
 // at the top of your file
 
 const Config = require('../../embedConfig.json')
-const {gifAPI} = require('../../config.json')
 const fetch = require('node-fetch')
 const Discord = require('discord.js');
+const gif = require('./getgif')
 
 
-exports.createEmbed = function (message, name, points, messages, total) {
+exports.createEmbed = async function (message, data) {
+
+    const gifURL = await gif.get('supersaiyan')
 
     // inside a command, event listener, etc.
     const exampleEmbed = new Discord.MessageEmbed()
-        .setColor('#0099ff')
+        .setColor('#ffdd00')
+        .setThumbnail(gifURL)
+        .setImage(gifURL)
         .addFields({
             name: 'Wow!',
-            value: `Your power lever just shot up by **${points}**!`
+            value: `Your power lever just shot up by **${data.points}**!`
         }, {
             name: 'Boost reason: ',
-            value: `${messages}`
+            value: `${data.message}`
         }, {
             name: `Your current power level is:`,
-            value: total
+            value: data.total
         })
 
     message.channel.send(exampleEmbed);
@@ -35,41 +39,25 @@ exports.sendTop5 = async function (message, arr) {
         data += `${i + 1}) ${arr[i].message} with ${arr[i].points}\n`
     }
 
-        const term = 'Super Saiyan'
+    const gifURL = await gif.get('supersaiyan')
 
-       
-        const response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${gifAPI}&q=${term}&limit=25&offset=0&rating=g&lang=en`)
-        const res = await response.json() || 'error';
+    const exampleEmbed = {
+        color: '#ffdd00',
+        title: 'Your top 5 activities!',
+        description: data,
+        thumbnail: {
+            url: gifURL
+        },
+        image: {
+            url: gifURL
+        }
 
-        var totalRes = res.data.length;
-        var responseIndex = Math.floor((Math.random() * 10) + 1 ) % totalRes;
-
-        const gifURL = res.data[responseIndex].images.original.url;
-
-        const exampleEmbed = {
-            color: 0x0099ff,
-            title: 'Your top 5 actities!',
-            description: data,
-            thumbnail: {
-                url: gifURL
-            },
-            image: {
-                url: gifURL
-            },
-            timestamp: new Date(),
-            footer: {
-                text: Config.general.footer.text,
-                icon_url: Config.general.footer.icon_url,
-            },
-        };
-    
-    
-    
-     
-        message.channel.send({
-            embed: exampleEmbed
-        });
-    }
+    };
 
 
-    
+
+
+    message.channel.send({
+        embed: exampleEmbed
+    });
+}
