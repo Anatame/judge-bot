@@ -1,9 +1,9 @@
-// const url = "mongodb://localhost/judgeDB"
+const url = "mongodb://localhost/judgeDB"
 const {dbURL} = require('../config.json')
 const mongoose = require('mongoose');
 
 mongoose.set("debug", true);
-mongoose.connect(dbURL, {
+mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
