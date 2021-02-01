@@ -1,6 +1,8 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const dbIndex = require('./database/index')
+
 
 // const {
 //     prefix,
@@ -20,6 +22,7 @@ for (const file of commandFiles) {
 
 client.once('ready', () => {
     console.log('Ready!');
+    compare(client);
 });
 
 client.on('message', message => {
@@ -90,6 +93,10 @@ client.on('message', message => {
 
 });
 
+
+function compare(client){
+    dbIndex.compare(client);
+}
 
 
 client.login(process.env.TOKEN);

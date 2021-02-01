@@ -23,3 +23,19 @@ exports.getTop5 = function(db, message){
 
     })
 }
+
+exports.cData = function(db, client){
+
+    db.users.find({}).then((user) => {
+        // let arr = user.log
+        
+        // arr.sort((a, b) => b.points - a.points)
+
+        // embed.sendTop5(message, arr)
+
+    })
+    
+
+
+    client.channels.cache.get('CHANNEL ID').send('Hello here!')
+}
