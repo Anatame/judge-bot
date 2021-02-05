@@ -70,7 +70,7 @@ exports.leaderboard = function (db, client, msg) {
     db.leaderboard.find({}).then(data => {
 
         //data[0].isSent
-        if (false) {
+        if (data[0].isSent) {
 
            client.channels.cache.get('807190857131491378').messages.fetch(`${data[0].id}`).then(msg => msg.edit({
             embed: lembed
