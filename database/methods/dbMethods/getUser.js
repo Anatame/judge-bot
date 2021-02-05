@@ -74,7 +74,7 @@ exports.top = function (db, message) {
 
         message.channel.send(
             `1: ${arr[0].name}
-            2: ${arr[1].name}`
+             2: ${arr[1].name}`
         )
 
     })
