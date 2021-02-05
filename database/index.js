@@ -3,6 +3,7 @@ const check = require('./methods/dbMethods/checkExists')
 const update = require('./methods/dbMethods/findnUpdate')
 const create = require('./methods/dbMethods/createUser')
 const get = require('./methods/dbMethods/getUser')
+const comparei = require('./methods/compare')
 
 exports.createUser = function (message, args) {
 
@@ -20,4 +21,12 @@ exports.activity = function (message) {
 
 exports.getTop5 = function (message) {
     get.getTop5(db, message)
+}
+
+exports.compare = function (client){
+    comparei.run(db, client)
+}
+
+exports.top = function (message) {
+    get.top(db, message)
 }
