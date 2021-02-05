@@ -1,5 +1,5 @@
-const url = "mongodb://localhost/judgeDB"
-// const url = process.env.DB_URL
+// const url = "mongodb://localhost/judgeDB"
+const url = process.env.DB_URL
 // const {dbURL} = require('../config.json')
 const mongoose = require('mongoose');
 

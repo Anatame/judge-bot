@@ -81,17 +81,16 @@ exports.top = function (db, message) {
                 points: points
             })
 
-        });
 
-        total.sort((a, b) => b.points - a.points)
-        let msg = '';
-        total.forEach((d, i) => {
-            msg += `(${i+1}) ${d.name}'s power level is a whooping ${d.points}!`
+            total.sort((a, b) => b.points - a.points)
+            let msg = '';
+            total.forEach((d, i) => {
+                msg += `(${i+1}) ${d.name}'s power level is a whooping ${d.points}!`
+            })
+
+
+            message.channel.send(msg)
         })
-
-
-        message.channel.send(msg)
     })
-
 
 }
