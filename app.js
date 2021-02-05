@@ -4,13 +4,13 @@ const client = new Discord.Client();
 const dbIndex = require('./database/index')
 
 
-const {
-    prefix,
-    token
-} = require('./config.json');
+// const {
+//     prefix,
+//     token
+// } = require('./config.json');
 
-// const token = process.env.TOKEN
-// const prefix = process.env.PREFIX
+const token = process.env.TOKEN
+const prefix = process.env.PREFIX
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
