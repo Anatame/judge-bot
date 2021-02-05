@@ -85,7 +85,7 @@ exports.top = function (db, message) {
             total.sort((a, b) => b.points - a.points)
             let msg = '';
             total.forEach((d, i) => {
-                msg += `(${i+1}) ${d.name}'s power level is a whooping ${d.points}!`
+                msg += `(${i+1}) ${d.name}'s power level is a whooping ${d.points}!\n`
             })
 
         })
