@@ -11,3 +11,4 @@ mongoose.connect(url, {
 mongoose.Promise = Promise;
 
 module.exports.users = require("../models/userSchema")
+module.exports.leaderboard = require("../models/leaderboardSchema")

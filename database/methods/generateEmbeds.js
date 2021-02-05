@@ -54,10 +54,39 @@ exports.sendTop5 = async function (message, arr) {
 
     };
 
-
-
-
     message.channel.send({
         embed: exampleEmbed
     });
+}
+
+exports.leaderboard = function (db, client, msg) {
+    const lembed = {
+        color: '#ffdd00',
+        title: `__Today's leaderboard__`,
+        description: msg,
+    }
+
+
+    db.leaderboard.find({}).then(data => {
+
+        if (data[0].isSent) {
+
+           client.channels.cache.get('807190857131491378').messages.fetch(`${data[0].id}`).then(msg => msg.edit({
+            embed: lembed
+        }) )
+        
+        } else {
+
+            client.channels.cache.get('807190857131491378').send({
+                embed: lembed
+            }).then(msg => {
+                db.leaderboard.create({
+                    id: msg.author.id,
+                    isSent: true
+                })
+            })
+
+        }
+    })
+
 }
