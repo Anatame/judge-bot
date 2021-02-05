@@ -70,9 +70,9 @@ exports.leaderboard = function (db, client, msg) {
     db.leaderboard.find({}).then(data => {
 
         //data[0].isSent
-        if (data[0].isSent) {
+        if (false) {
 
-           client.channels.cache.get('807190857131491378').messages.fetch(`807328190590091265`).then(msg => msg.edit({
+           client.channels.cache.get('807190857131491378').messages.fetch(`${data[0].id}`).then(msg => msg.edit({
             embed: lembed
         }) )
         
@@ -82,7 +82,7 @@ exports.leaderboard = function (db, client, msg) {
                 embed: lembed
             }).then(msg => {
                 db.leaderboard.create({
-                    id: msg.author.id,
+                    id: msg.id,
                     isSent: true
                 })
             })
