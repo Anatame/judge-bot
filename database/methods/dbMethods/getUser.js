@@ -90,6 +90,7 @@ exports.top = function (db, message) {
 
         })
 
+        console.log(msg)
         message.channel.send(msg)
     })
 
