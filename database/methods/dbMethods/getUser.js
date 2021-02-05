@@ -53,11 +53,30 @@ exports.cData = function (db, client) {
 
     db.users.find({}).then((user) => {
 
-        let arr = user;
-        arr.sort((a, b) => b.points - a.points)
+        let total = []
+        user.forEach(userData => {
+
+            let sumArr = []
+
+            userData.log.forEach(u => sumArr.push(u.points));
+
+            let points = sumArr.reduce((a, b) => a + b)
+
+            total.push({
+                name: userData.name,
+                points: points
+            })
+
+        })
+
+        total.sort((a, b) => b.points - a.points)
+        let msg = '';
+        total.forEach((d, i) => {
+            msg += `(${i+1}) ${d.name}'s power level is a whooping ${d.points}!\n`
+        })
 
 
-        client.channels.cache.get('CHANNEL ID').send('Hello here!')
+        client.channels.cache.get('807190857131491378').send(msg)
 
     })
 
@@ -83,13 +102,13 @@ exports.top = function (db, message) {
 
         })
 
-            total.sort((a, b) => b.points - a.points)
-            let msg = '';
-            total.forEach((d, i) => {
-                msg += `(${i+1}) ${d.name}'s power level is a whooping ${d.points}!\n`
-            })
+        total.sort((a, b) => b.points - a.points)
+        let msg = '';
+        total.forEach((d, i) => {
+            msg += `(${i+1}) ${d.name}'s power level is a whooping ${d.points}!\n`
+        })
 
-     
+
 
         console.log(msg)
         message.channel.send(msg)
