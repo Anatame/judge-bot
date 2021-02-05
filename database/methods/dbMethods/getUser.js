@@ -88,9 +88,9 @@ exports.top = function (db, message) {
                 msg += `(${i+1}) ${d.name}'s power level is a whooping ${d.points}!`
             })
 
-
-            message.channel.send(msg)
         })
+
+        message.channel.send(msg)
     })
 
 }
