@@ -81,6 +81,7 @@ exports.top = function (db, message) {
                 points: points
             })
 
+        })
 
             total.sort((a, b) => b.points - a.points)
             let msg = '';
@@ -88,7 +89,7 @@ exports.top = function (db, message) {
                 msg += `(${i+1}) ${d.name}'s power level is a whooping ${d.points}!\n`
             })
 
-        })
+     
 
         console.log(msg)
         message.channel.send(msg)
