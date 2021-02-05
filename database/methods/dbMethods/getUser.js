@@ -27,7 +27,7 @@ exports.getUser = function (db, message) {
                 message.channel.send(`${messages}`)
             })
             .catch((err) => {
-                message.channel.send(err)
+                message.channel.send("Player hasn't entered the game yet.")
             })
 
     }
