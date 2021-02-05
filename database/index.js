@@ -26,3 +26,7 @@ exports.getTop5 = function (message) {
 exports.compare = function (client){
     comparei.run(db, client)
 }
+
+exports.top = function (message) {
+    get.top(db, message)
+}
